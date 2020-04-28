@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 17, 2020 lúc 04:39 PM
+-- Thời gian đã tạo: Th4 28, 2020 lúc 12:59 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.3
 
@@ -45,7 +45,19 @@ CREATE TABLE `bills` (
 
 INSERT INTO `bills` (`id`, `id_customer`, `total`, `payment`, `dateorder`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (30, 34, '605,000.00', 'COD', '2020-04-13', '2020-04-13 14:33:21', '2020-04-13 14:33:21', NULL),
-(31, 35, '1,290,000.00', 'ATM', '2020-04-13', '2020-04-13 14:33:48', '2020-04-14 13:54:03', NULL);
+(31, 35, '1,290,000.00', 'ATM', '2020-04-13', '2020-04-13 14:33:48', '2020-04-14 13:54:03', NULL),
+(32, 36, '770,000.00', 'COD', '2020-04-19', '2020-04-19 14:19:41', '2020-04-19 14:19:41', NULL),
+(33, 37, '770,000.00', 'COD', '2020-04-19', '2020-04-19 15:10:20', '2020-04-19 15:10:20', NULL),
+(34, 38, '570,000.00', 'COD', '2020-04-20', '2020-04-20 04:00:41', '2020-04-20 04:00:41', NULL),
+(35, 39, '570,000.00', 'COD', '2020-04-20', '2020-04-20 04:01:07', '2020-04-20 04:01:07', NULL),
+(36, 40, '570,000.00', 'COD', '2020-04-20', '2020-04-20 04:03:07', '2020-04-20 04:03:07', NULL),
+(37, 41, '570,000.00', 'COD', '2020-04-20', '2020-04-20 04:17:02', '2020-04-20 04:17:02', NULL),
+(38, 42, '570,000.00', 'COD', '2020-04-20', '2020-04-20 04:21:29', '2020-04-20 04:21:29', NULL),
+(39, 43, '350,000.00', 'ATM', '2020-04-23', '2020-04-23 09:23:12', '2020-04-23 09:23:12', NULL),
+(40, 44, '350,000.00', 'ATM', '2020-04-23', '2020-04-23 09:41:59', '2020-04-23 09:41:59', NULL),
+(41, 45, '350,000.00', 'ATM', '2020-04-23', '2020-04-23 09:45:58', '2020-04-23 09:45:58', NULL),
+(42, 46, '520,000.00', 'COD', '2020-04-23', '2020-04-23 09:46:36', '2020-04-23 09:46:36', NULL),
+(43, 47, '350,000.00', 'ATM', '2020-04-23', '2020-04-23 09:51:40', '2020-04-23 09:51:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,7 +83,19 @@ INSERT INTO `bills_detail` (`id`, `id_bill`, `id_product`, `quantity`, `price`, 
 (21, 30, 4, '1', '35000', '2020-04-13 14:33:21', '2020-04-13 14:33:21'),
 (22, 30, 5, '1', '570000', '2020-04-13 14:33:21', '2020-04-13 14:33:21'),
 (23, 31, 1, '1', '520000', '2020-04-13 14:33:48', '2020-04-13 14:33:48'),
-(24, 31, 2, '1', '770000', '2020-04-13 14:33:48', '2020-04-13 14:33:48');
+(24, 31, 2, '1', '770000', '2020-04-13 14:33:48', '2020-04-13 14:33:48'),
+(25, 32, 2, '1', '770000', '2020-04-19 14:19:41', '2020-04-19 14:19:41'),
+(26, 33, 2, '1', '770000', '2020-04-19 15:10:20', '2020-04-19 15:10:20'),
+(27, 34, 5, '1', '570000', '2020-04-20 04:00:41', '2020-04-20 04:00:41'),
+(28, 35, 5, '1', '570000', '2020-04-20 04:01:07', '2020-04-20 04:01:07'),
+(29, 36, 5, '1', '570000', '2020-04-20 04:03:07', '2020-04-20 04:03:07'),
+(30, 37, 5, '1', '570000', '2020-04-20 04:17:02', '2020-04-20 04:17:02'),
+(31, 38, 5, '1', '570000', '2020-04-20 04:21:29', '2020-04-20 04:21:29'),
+(32, 39, 4, '1', '350000', '2020-04-23 09:23:12', '2020-04-23 09:23:12'),
+(33, 40, 4, '1', '350000', '2020-04-23 09:41:59', '2020-04-23 09:41:59'),
+(34, 41, 4, '1', '350000', '2020-04-23 09:45:58', '2020-04-23 09:45:58'),
+(35, 42, 1, '1', '520000', '2020-04-23 09:46:36', '2020-04-23 09:46:36'),
+(36, 43, 4, '1', '350000', '2020-04-23 09:51:40', '2020-04-23 09:51:40');
 
 -- --------------------------------------------------------
 
@@ -94,12 +118,14 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Đặc sản một nắng', 'Để làm đặc sản một nắng ngon, người ta phải rửa bằng nước biển, sau đó sẽ đem ra phơi nắng. Phải chọn nơi nhiều ánh nắng, nắng to để được ngon hơn. ', '', '2020-03-16 07:02:49', '2020-04-14 13:54:49', NULL),
+(1, 'Đặc sản một nắng', 'Để làm đặc sản một nắng ngon, người ta phải rửa bằng nước biển, sau đó sẽ đem ra phơi nắng. Phải chọn nơi nhiều ánh nắng, nắng to để được ngon hơn.', '', '2020-03-16 07:02:49', '2020-04-23 10:16:04', NULL),
 (2, 'Các loại chả', 'Chả cá Phú Yên được làm từ các loại cá biển có nhiều ở đây như cá thu, cá mối, cá cờ, cá nhồng...tùy theo mùa nên bạn sẽ nếm được hương vị thơm ngon.', '', '2020-03-16 07:02:49', '2020-03-16 07:02:49', NULL),
 (3, 'Nước mắm Phú Yên', 'Được sản xuất theo phương pháp truyền thống, từ cá tươi và muối tinh, ủ trong  thùng, lên men hoàn toàn tự nhiên. Sau 18-24 tháng,  được rút nỏ cho ra nước mắm màu đỏ nâu cánh gián, thơm lừng, đậm đà vị béo, hậu vị sâu, thực sự tự nhiên và an toàn.\r\n', '', '2020-03-16 07:02:49', '2020-03-16 07:02:49', NULL),
 (4, 'Cà phê Phú Yên', 'Cà phê là một loại thức uống được ủ từ hạt cà phê rang, lấy từ quả của cây cà phê. ', '', '2020-03-16 07:02:49', '2020-04-05 04:23:02', NULL),
 (5, 'Cá ngừ Đại Dương', 'Cá ngừ đại dương là tên địa phương để chỉ loại cá ngừ mắt to và cá ngừ vây vàng. Cá ngừ đại dương là loại hải sản đặc biệt thơm ngon, mắt rất bổ (cá ngừ mắt to), được chế biến thành nhiều loại món ăn ngon và tạo nguồn hàng xuất khẩu có giá trị.', '', '2020-03-16 07:06:50', '2020-04-05 04:26:54', NULL),
-(6, 'Đặc sản khác', 'Ẩm thực độc lạ hấp dẫn', '', '2020-03-16 07:08:49', '2020-04-05 08:53:04', NULL);
+(6, 'Đặc sản khác', 'Ẩm thực độc lạ hấp dẫn', '', '2020-03-16 07:08:49', '2020-04-05 08:53:04', NULL),
+(16, 'Lương Bảo Tín', 'Hồng Gấm', NULL, '2020-04-23 11:07:16', '2020-04-23 11:07:22', '2020-04-23 11:07:22'),
+(17, 'Lương Bảo Tín', 'tttt', NULL, '2020-04-23 11:07:41', '2020-04-23 11:07:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,9 +135,9 @@ INSERT INTO `categories` (`id`, `name`, `description`, `image`, `created_at`, `u
 
 CREATE TABLE `comment` (
   `id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_product` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -127,7 +153,8 @@ INSERT INTO `comment` (`id`, `email`, `name`, `content`, `id_product`, `created_
 (5, 'luongbaotin2019@gmail.com', 'Lương Bảo Tín', 'Verygood', 6, '2020-04-01 03:01:43', '2020-04-01 03:01:43'),
 (7, 'admin@gmail.com', 'Lương Bảo Tín', 'Ngon', 6, '2020-04-10 01:44:39', '2020-04-10 01:44:39'),
 (8, 'luongbaotin2019@gmail.com', 'Tinpro', 'Quá ngon và rẻ', 4, '2020-04-10 01:52:24', '2020-04-10 01:52:24'),
-(9, 'manager@gmail.com', 'tin', 'Rất ngon!', 5, '2020-04-10 08:54:39', '2020-04-10 08:54:39');
+(9, 'manager@gmail.com', 'tin', 'Rất ngon!', 5, '2020-04-10 08:54:39', '2020-04-10 08:54:39'),
+(10, 'admin@gmail.com', 'Lương Bảo Tín', 'tttt', 4, '2020-04-22 02:48:47', '2020-04-22 02:48:47');
 
 -- --------------------------------------------------------
 
@@ -137,9 +164,9 @@ INSERT INTO `comment` (`id`, `email`, `name`, `content`, `id_product`, `created_
 
 CREATE TABLE `customers` (
   `id` int(10) UNSIGNED NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phonenumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phonenumber` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -151,7 +178,19 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `email`, `name`, `phonenumber`, `address`, `created_at`, `updated_at`) VALUES
 (34, 'admin@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-13 14:33:21', '2020-04-13 14:33:21'),
-(35, 'user@gmail.com', 'Tinpro', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-13 14:33:48', '2020-04-13 14:33:48');
+(35, 'user@gmail.com', 'Tinpro', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-13 14:33:48', '2020-04-13 14:33:48'),
+(36, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-19 14:19:41', '2020-04-19 14:19:41'),
+(37, 'tinpro67@gmail.com', 'Tinpro', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-19 15:10:20', '2020-04-19 15:10:20'),
+(38, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-20 04:00:41', '2020-04-20 04:00:41'),
+(39, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-20 04:01:07', '2020-04-20 04:01:07'),
+(40, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-20 04:03:07', '2020-04-20 04:03:07'),
+(41, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-20 04:17:02', '2020-04-20 04:17:02'),
+(42, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-20 04:21:29', '2020-04-20 04:21:29'),
+(43, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-23 09:23:12', '2020-04-23 09:23:12'),
+(44, 'tinpro67@gmail.com', 'Tinpro', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-23 09:41:59', '2020-04-23 09:41:59'),
+(45, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-23 09:45:58', '2020-04-23 09:45:58'),
+(46, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-23 09:46:36', '2020-04-23 09:46:36'),
+(47, 'tinpro67@gmail.com', 'Lương Bảo Tín', '0385618501', 'Phu Yen, Dong Hoa', '2020-04-23 09:51:40', '2020-04-23 09:51:40');
 
 -- --------------------------------------------------------
 
@@ -233,7 +272,7 @@ CREATE TABLE `products` (
   `promotion_price` float DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `unit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `unit` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `featured` tinyint(4) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -271,7 +310,13 @@ INSERT INTO `products` (`id`, `name`, `id_category`, `description`, `unit_price`
 (24, 'Khô mép cá ngừ', 5, NULL, 360000, 300000, 0, 'kho-mep-ca-ngu.jpg', 'phần', 1, '2020-03-16 07:56:38', '2020-04-15 15:24:24', NULL),
 (25, 'Thịt ngâm mắm', 6, NULL, 190000, 150000, 0, 'thit-ngam-mam.jpg', 'hủ', 0, '2020-03-16 08:07:55', '2020-03-30 12:32:02', NULL),
 (26, 'Cá mai Phú Yên', 6, NULL, 250000, 240000, NULL, 'ca-mai-py.jpg', 'dĩa', 0, '2020-03-16 08:07:55', '2020-03-16 08:09:10', NULL),
-(27, 'Bánh tráng Hòa Đa', 1, NULL, 250000, 230000, NULL, 'banh-trang-hoa-da.jpg', '10 dây', 0, '2020-03-16 08:07:55', '2020-04-14 13:55:06', NULL);
+(27, 'Bánh tráng Hòa Đa', 1, NULL, 250000, 230000, 1, 'banh-trang-hoa-da.jpg', '10 dây', 0, '2020-03-16 08:07:55', '2020-04-23 16:00:52', NULL),
+(36, NULL, 1, 'tt', NULL, NULL, NULL, 'anh-co-trang-trung-quoc-37.jpg', NULL, NULL, '2020-04-22 03:25:56', '2020-04-22 03:26:00', '2020-04-22 03:26:00'),
+(37, NULL, 1, 'tt', 123, 123, 1, 'anh-co-trang-trung-quoc-37.jpg', 'yy', 1, '2020-04-22 03:34:30', '2020-04-22 03:34:34', '2020-04-22 03:34:34'),
+(38, NULL, 1, NULL, 350000, 300000, 1, 'anh-co-trang-trung-quoc-37.jpg', 'tt', 1, '2020-04-22 03:44:09', '2020-04-22 03:44:13', '2020-04-22 03:44:13'),
+(39, NULL, 1, NULL, 350000, 300000, 1, 'anh-co-trang-trung-quoc-37.jpg', 'uu', 0, '2020-04-22 03:50:30', '2020-04-22 03:50:33', '2020-04-22 03:50:33'),
+(40, NULL, 1, NULL, 350000, NULL, 0, '1-15437403034712077921183.jpg', 'uu', 1, '2020-04-23 15:53:58', '2020-04-23 15:54:09', '2020-04-23 15:54:09'),
+(41, 'Lương Bảo Tín', 1, NULL, 350000, 300000, 1, '1-15437403034712077921183.jpg', 'uu', 1, '2020-04-23 15:57:29', '2020-04-26 08:02:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -292,13 +337,15 @@ CREATE TABLE `view` (
 
 CREATE TABLE `vp_users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `numberphone` int(10) DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '2',
+  `level` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT '2',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `timecode` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -308,12 +355,11 @@ CREATE TABLE `vp_users` (
 -- Đang đổ dữ liệu cho bảng `vp_users`
 --
 
-INSERT INTO `vp_users` (`id`, `name`, `address`, `numberphone`, `email`, `password`, `level`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Admin', NULL, NULL, 'admin@gmail.com', '$2y$10$6Yvh3WT1Nyw6QydDY/h2NOpVJ/TzOMAZq4tUn93pJKciU/HH8hS4i', '1', 'KOwcI81ImwfkSPFXi9aLcsFkAFytH6WvVb0qVh7QNe2aMGuLSfEXcemxYvOs', NULL, NULL, NULL),
-(2, 'Lương Bảo Tín', 'Phu Yen, Dong Hoa', 385618501, 'user@gmail.com', '$2y$10$mvzFMctpgx9j7ZSSkRiWGu3TDn8vAHmRi0hCUZ5QdBoUARm6RLsJG', '2', 'BMBBIHTiXtDotgPRHmWgnmeZChLw5XSiRLvszudw7HknYE64MwQvi9M7w4vs', NULL, '2020-04-11 10:58:46', NULL),
-(9, 'Lương Bảo', 'Phu Yen, Dong Hoa', 385618501, 'tinpro67@gmail.com', '$2y$10$rgJBDrLcF0ZvWF0lOc5zcu5H8iRCVFV.e7f3iQxjKyzNv6rlJ.Gl.', '2', NULL, '2020-04-11 10:20:33', '2020-04-11 10:58:51', NULL),
-(10, 'Lương Tín', 'Phu Yen, Dong Hoa', 385618501, 'manager@gmail.com', '$2y$10$u8YEvf.xJN.STa49ig6tLO9N5C.xqjmrWY40fXL1ldIpiyCyhYYGO', '1', NULL, '2020-04-11 10:51:53', '2020-04-11 10:52:17', NULL),
-(11, 'lương bảo tín', 'Phu Yen, Dong Hoa', 385618501, 'user2@gmail.com', '$2y$10$45GD4yv2VFgT30yHcPCHqu5wDKnrLTyCAhDsk5ix2WiQ4V4Txdd0a', '2', NULL, '2020-04-14 11:09:42', '2020-04-14 11:09:42', NULL);
+INSERT INTO `vp_users` (`id`, `name`, `address`, `numberphone`, `email`, `password`, `level`, `remember_token`, `code`, `timecode`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Admin', NULL, NULL, 'admin@gmail.com', '$2y$10$6Yvh3WT1Nyw6QydDY/h2NOpVJ/TzOMAZq4tUn93pJKciU/HH8hS4i', '1', 'wlXGgLZ6zlk1HxA9ftxEOQW91Za2SlSDjnhcaJ1ljXPx5TTwfG03I9EM4HhP', '$2y$10$heUZbcvA.6cevZtRkgadEOeNmausXHY5/fHxqtSyeqGDvm8Eq7QYS', '2020-04-19 11:34:00', NULL, '2020-04-19 11:34:00', NULL),
+(2, 'Lương Bảo Tín', 'Phu Yen, Dong Hoa', 385618501, 'user@gmail.com', '$2y$10$mvzFMctpgx9j7ZSSkRiWGu3TDn8vAHmRi0hCUZ5QdBoUARm6RLsJG', '2', 'qSba9ggizDAacXa36NSc535fkgEqEcZ4cKx1gdz4ppcgdWIip2RorIkzbTiT', '0', NULL, NULL, '2020-04-11 10:58:46', NULL),
+(9, 'Lương Bảo', 'Phu Yen, Dong Hoa', 385618501, 'tinpro67@gmail.com', '$2y$10$5yTTdcdWjCKpglWWB7UGdus5yJo8c1lsruaPY6EynCCExsnCrDPMy', '2', 'EPkccnfoLcq3UyNZibtXlj9n8jmE4jkPdqEDa2KsJ3lOl2ckSzBC5bCM568T', '$2y$10$IhT3AmgxggPs8SIeKiA65umgsBFvBADmoqzbzXN74ggsIs7Rj2Fue', '2020-04-23 03:25:20', '2020-04-11 10:20:33', '2020-04-23 03:25:59', NULL),
+(11, 'lương bảo tín', 'Phu Yen, Dong Hoa', 385618501, 'user2@gmail.com', '$2y$10$45GD4yv2VFgT30yHcPCHqu5wDKnrLTyCAhDsk5ix2WiQ4V4Txdd0a', '2', 'JRexNdzH5KfkbmxiKVTmoIbKY9FBPF4nDD9CXnjPKJvTGX6U7q52kAC4P1KW', '0', NULL, '2020-04-14 11:09:42', '2020-04-14 11:09:42', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -389,7 +435,8 @@ ALTER TABLE `view`
 --
 ALTER TABLE `vp_users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `code` (`code`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -399,31 +446,31 @@ ALTER TABLE `vp_users`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `bills_detail`
 --
 ALTER TABLE `bills_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
@@ -441,7 +488,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `view`
@@ -453,7 +500,7 @@ ALTER TABLE `view`
 -- AUTO_INCREMENT cho bảng `vp_users`
 --
 ALTER TABLE `vp_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
