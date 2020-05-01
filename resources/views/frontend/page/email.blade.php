@@ -3,19 +3,19 @@
         <h3>Thông tin khách hàng</h3>
         <p>
             <span class="info">Khách hàng: </span>
-            {{$infor['name']}}
+            {{   $infor['name']   }}
         </p>
         <p>
             <span class="info">Email: </span>
-            {{$infor['email']}}
+            {{    $infor['email']  }}
         </p>
         <p>
             <span class="info">Điện thoại: </span>
-            {{$infor['phone']}}
+            {{   $infor['phone']   }}
         </p>
         <p>
             <span class="info">Địa chỉ: </span>
-            {{$infor['address']}}
+            {{   $infor['address']   }}
         </p>
     </div>
     <div id="hoa-don">
@@ -29,15 +29,16 @@
             </tr>
             @foreach($cart as $item)
             <tr>
-                <td>{{$item->name}}</td>
-                <td class="price">{{number_format($item->price,0,',','.')}} VNĐ</td>
-                <td>{{$item->qty}}</td>
-                <td class="price">{{number_format($item->price * $item->qty,0,',','.')}}</td>
+                <td>{{    $item->name   }}</td>
+                <td class="price">{{    number_format($item->price,0,',','.')   }} VNĐ</td>
+                <td>{{    $item->qty   }}</td>
+                <td class="price">{{    number_format($item->price * $item->qty,0,',','.')   }}</td>
             </tr>
             @endforeach
+
             <tr>
                 <td colspan="3">Tổng tiền:</td>
-                <td class="total-price">{{$total}}</td>
+                <td class="total-price">{{   $total    }}</td>
             </tr>
         </table>
     </div>
