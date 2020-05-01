@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Http\Requests\CustomerRequest;
 use Illuminate\Support\Facades\Mail;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require '../vendor/autoload.php';
 
 class CartController extends Controller
 {
@@ -86,24 +90,54 @@ class CartController extends Controller
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total();
         $email = $request->email;
-        if ($request->payment_method == "COD") {
-            Mail::send('frontend.page.email', $data, function ($message) use ($email) {
-                $message->from('luongbaotin2020@gmail.com', 'Luong Bao Tin');
-                $message->to($email, $email);
-                $message->cc('tinpro67@gmail.com', 'Tin Pro');
+        // $body = file_get_contents(resource_path('views/frontend/page/email.blade.php'));
+        $body = view('frontend.page.email',$data,[])->render();
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->SMTPDebug = 0;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'luongbaotin2020@gmail.com';                     // SMTP username
+            $mail->Password   = 'Tinpro123';                               // SMTP password
+            $mail->SMTPSecure =  'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
-                $message->subject('Xác nhận đơn hàng của Đặc sản Phú Yên');
-            });
-        } else {
-            Mail::send('frontend.page.email2', $data, function ($message) use ($email) {
-                $message->from('luongbaotin2020@gmail.com', 'Luong Bao Tin');
-                $message->to($email, $email);
-                $message->cc('tinpro67@gmail.com', 'Tin Pro');
-
-                $message->subject('Xác nhận đơn hàng của Đặc sản Phú Yên');
-            });
+            //Recipients
+            $mail->setFrom('luongbaotin@gmail.com', 'Đặc sản Phú Yên');
+            $mail->addAddress($email);     // Add a recipient
+            $mail->addCC('luongbaotin2020@gmail.com');
+            $mail->CharSet = 'UTF-8';
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Xác nhận đơn hàng Đặc sản Phú Yên';
+            $mail->Body    = $body;
+            $mail->AltBody = '';
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
 
+
+         // if ($request->payment_method == "COD") {
+        //     Mail::send('frontend.page.email', $data, function ($message) use ($email) {
+        //         $message->from('luongbaotin2020@gmail.com', 'Luong Bao Tin');
+        //         $message->to($email, $email);
+        //         $message->cc('tinpro67@gmail.com', 'Tin Pro');
+
+        //         $message->subject('Xác nhận đơn hàng của Đặc sản Phú Yên');
+        //     });
+        // } else {
+        //     Mail::send('frontend.page.email2', $data, function ($message) use ($email) {
+        //         $message->from('luongbaotin2020@gmail.com', 'Luong Bao Tin');
+        //         $message->to($email, $email);
+        //         $message->cc('tinpro67@gmail.com', 'Tin Pro');
+
+        //         $message->subject('Xác nhận đơn hàng của Đặc sản Phú Yên');
+        //     });
+        // }
         Cart::destroy();
         return redirect()->route('getComplete');
     }
