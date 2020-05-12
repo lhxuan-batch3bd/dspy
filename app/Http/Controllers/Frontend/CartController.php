@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 require '../vendor/autoload.php';
 
 class CartController extends Controller
@@ -90,8 +91,8 @@ class CartController extends Controller
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total();
         $email = $request->email;
-        // $body = file_get_contents(resource_path('views/frontend/page/email.blade.php'));
-        $body = view('frontend.page.email',$data,[])->render();
+        // $body = file_get_contents(dirname(__DIR__).'../../../../resources/views/frontend/page/email.blade.php');
+        $body = view('frontend.page.email', $data, [])->render();
         $mail = new PHPMailer(true);
         try {
             //Server settings
@@ -121,7 +122,7 @@ class CartController extends Controller
         }
 
 
-         // if ($request->payment_method == "COD") {
+        // if ($request->payment_method == "COD") {
         //     Mail::send('frontend.page.email', $data, function ($message) use ($email) {
         //         $message->from('luongbaotin2020@gmail.com', 'Luong Bao Tin');
         //         $message->to($email, $email);

@@ -48,10 +48,10 @@ class LoginController extends Controller
 
         if($request->checkbox==1){
         $user = new User();
-        $user->name = $request->name;
-        $user->address = $request->address;
-        $user->email = $request->email;
-        $user->numberphone = $request->phone;
+        $user->name = $request->old('name');
+        $user->address = $request->old('address');
+        $user->email = $request->old('email');
+        $user->numberphone = $request->old('phone');
         $user->password = bcrypt($request->password);
         $user->save();
         return back()->with('register_success', 'Đăng ký thành công, xin mời đăng nhập');

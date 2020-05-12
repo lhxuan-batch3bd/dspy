@@ -26,7 +26,7 @@
 </div> <!-- #footer -->
 <div class="copyright">
     <div class="container">
-        <p class="text-center">Copyright © 2020 PYS Store. Design by PYU !!! </p>
+        <a class="text-center">Copyright © 2020 PYS Store. Design by PYU !!! </a>
         <div class="clearfix"></div>
     </div> <!-- .container -->
 </div> <!-- .copyright -->

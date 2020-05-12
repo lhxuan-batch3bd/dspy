@@ -55,19 +55,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             @endif
             <form action="{{route('postRegister')}}" method="post" role="form">
                 @csrf
-                <input type="text" class="ggg" name="name" placeholder="Tên">
+                <input type="text" class="ggg" name="name" placeholder="Tên" value= "{{old('name')}}">
                 @if ($errors->has('name'))
                 <p class="text-danger">{{ $errors->first('name') }}</p>
                 @endif
-                <input type="email" class="ggg" name="email" placeholder="E-MAIL">
+                <input type="email" class="ggg" name="email" placeholder="E-MAIL" value="{{old('email')}}">
                 @if ($errors->has('email'))
                 <p class="text-danger">{{ $errors->first('email') }}</p>
                 @endif
-                <input type="text" class="ggg" name="address" placeholder="Địa chỉ">
+                <input type="text" class="ggg" name="address" placeholder="Địa chỉ" value="{{old('address')}}">
                 @if ($errors->has('address'))
                 <p class="text-danger">{{ $errors->first('address') }}</p>
                 @endif
-                <input type="text" class="ggg" name="phone" placeholder="Số điện thoại">
+                <input type="text" class="ggg" name="phone" placeholder="Số điện thoại" value="{{old('phone')}}">
                 @if ($errors->has('phone'))
                 <p class="text-danger">{{ $errors->first('phone') }}</p>
                 @endif

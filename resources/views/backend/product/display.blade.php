@@ -54,8 +54,7 @@
                             <td>{{$pd->name}}</td>
                             <td>{{$pd->category->name ?? 'no category'}}</td>
                             <td>
-                                <p id="p1">{{$pd->description}}
-                                    <p>
+                                <p id="p1">{{ $pd->description }}<p>
                             </td>
                             <td>{{number_format($pd->unit_price,0,',','.')}}đ</td>
                             <td>{{number_format($pd->promotion_price,0,',','.')}}đ</td>

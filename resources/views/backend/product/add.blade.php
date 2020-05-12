@@ -1,6 +1,7 @@
 @extends('backend.master')
 @section('title', 'Sản phẩm')
 @section('content')
+
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -33,8 +34,13 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Mô tả</label>
-                            <textarea style="resize: none;" name="desc" class="form-control" id="exampleInputPassword1"></textarea>
+                            <label for="desc">Mô tả</label>
+                            <textarea style="resize: none;" name="desc" class="form-control" id="desc"></textarea>
+                            <script src="ckeditor/ckeditor.js"></script>
+                            <script>
+                                CKEDITOR.replace('desc');
+
+                            </script>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail8">Giá</label>
@@ -82,4 +88,5 @@
         </section>
     </div>
 </div>
+
 @endsection

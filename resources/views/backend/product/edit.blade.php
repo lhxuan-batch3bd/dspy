@@ -1,6 +1,7 @@
 @extends('backend.master')
 @section('title', 'Danh mục sản phẩm')
 @section('content')
+
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -22,13 +23,18 @@
                             <label for="exampleInputEmail1">Loại sản phẩm</label>
                             <select name="category" class="form-control">
                                 @foreach($category as $cate)
-                                <option value="{{$cate->id}}" {{$product->id_category==$cate->id ? "Selected='Selected'":''}}>{{$cate->name}}</option>
+                                <option value="{{$cate->id}}" {{ $product->id_category==$cate->id ? "Selected='Selected'":''}}>{{$cate->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mô tả</label>
-                            <textarea style="resize: none;" name="desc" class="form-control" id="exampleInputPassword1" value="Password">{{$product->description}}</textarea>
+                            <textarea style="resize: none;" name="desc" class="form-control" id="exampleInputPassword1">{!! ($product->description) !!}</textarea>
+                            <script src="ckeditor/ckeditor.js"></script>
+                            <script>
+                                CKEDITOR.replace('exampleInputPassword1');
+
+                            </script>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Giá</label>

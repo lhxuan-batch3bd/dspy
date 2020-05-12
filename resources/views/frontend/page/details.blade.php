@@ -42,7 +42,7 @@
                         <div class="space20">&nbsp;</div>
 
                         <div class="single-item-desc">
-                            <p>{{$detail_product->description}}</p>
+                            <p>{!! ($detail_product->description) !!}</p>
                         </div>
                         <div class="space20">&nbsp;</div>
                         <div class="single-item-options">
